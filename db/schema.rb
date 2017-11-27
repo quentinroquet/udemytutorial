@@ -11,7 +11,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171126105419) do
+ActiveRecord::Schema.define(version: 20171127175828) do
+
+  create_table "rooms", force: :cascade do |t|
+    t.string   "home_type"
+    t.string   "room_type"
+    t.integer  "accomodate"
+    t.string   "bed_room"
+    t.string   "integer"
+    t.integer  "bath_rooms"
+    t.string   "listing_name"
+    t.text     "summary"
+    t.string   "address"
+    t.boolean  "is_wifi"
+    t.boolean  "is_tv"
+    t.boolean  "is_closet"
+    t.boolean  "is_shampoo"
+    t.boolean  "is_breakfast"
+    t.boolean  "is_heat"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "price"
+    t.boolean  "active"
+    t.integer  "user_id"
+  end
+
+  add_index "rooms", ["user_id"], name: "index_rooms_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
